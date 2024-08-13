@@ -3,16 +3,16 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Test
 
-class AnagramHelperTest {
+class AnagramTest {
 
-    private val helper = AnagramHelper()
+    private val anagram = Anagram()
 
     @Test
     fun testAreAnagrams_Success() {
         val firstString = "Listen"
         val secondString = "Silent"
 
-        val result = helper.areAnagrams(firstString, secondString)
+        val result = anagram.areAnagrams(firstString, secondString)
         assertTrue(result, "Expected '$firstString' and '$secondString' to be anagrams")
     }
 
@@ -21,15 +21,15 @@ class AnagramHelperTest {
         val firstString = "Hello"
         val secondString = "World"
 
-        val result = helper.areAnagrams(firstString, secondString)
+        val result = anagram.areAnagrams(firstString, secondString)
         assertFalse(result, "Expected '$firstString' and '$secondString' not to be anagrams")
     }
 
     @Test
     fun testGetAnagrams_NoAnagrams() {
-        helper.areAnagrams("abc", "def")
+        anagram.areAnagrams("abc", "def")
 
-        val anagrams = helper.getAnagrams("abc")
+        val anagrams = anagram.getAnagrams("abc")
         assertTrue(anagrams.isEmpty(), "Expected no anagrams for 'abc'")
     }
 
@@ -38,25 +38,25 @@ class AnagramHelperTest {
         val firstString = "Hello"
         val secondString = "Helllo"
 
-        val result = helper.areAnagrams(firstString, secondString)
+        val result = anagram.areAnagrams(firstString, secondString)
         assertFalse(result, "Expected '$firstString' and '$secondString' not to be anagrams")
     }
 
     @Test
     fun testGetAnagrams_WithAnagrams() {
-        helper.areAnagrams("listen", "silent")
-        helper.areAnagrams("listen", "enlist")
-        helper.areAnagrams("evil", "vile")
+        anagram.areAnagrams("listen", "silent")
+        anagram.areAnagrams("listen", "enlist")
+        anagram.areAnagrams("evil", "vile")
 
-        val anagrams = helper.getAnagrams("listen")
+        val anagrams = anagram.getAnagrams("listen")
         assertEquals(listOf("silent", "enlist"), anagrams, "Expected 'listen' to have anagrams 'silent' and 'enlist'")
     }
 
     @Test
     fun testGetAnagrams_SingleWord() {
-        helper.areAnagrams("word", "drow")
+        anagram.areAnagrams("word", "drow")
 
-        val anagrams = helper.getAnagrams("word")
+        val anagrams = anagram.getAnagrams("word")
         assertEquals(listOf("drow"), anagrams, "Expected 'word' to have an anagram 'drow'")
     }
 
@@ -65,7 +65,7 @@ class AnagramHelperTest {
         val firstString = ""
         val secondString = ""
 
-        val result = helper.areAnagrams(firstString, secondString)
+        val result = anagram.areAnagrams(firstString, secondString)
         assertFalse(result, "Expected empty strings not to be considered anagrams")
     }
 
@@ -74,7 +74,7 @@ class AnagramHelperTest {
         val firstString = ""
         val secondString = "anything"
 
-        val result = helper.areAnagrams(firstString, secondString)
+        val result = anagram.areAnagrams(firstString, secondString)
         assertFalse(result, "Single empty strings not to be considered anagrams")
     }
 
@@ -83,7 +83,7 @@ class AnagramHelperTest {
         val firstString = "Listen to the echo of the silent wind as it whispers secrets of the old oak tree, standing tall and resolute against the test of time, its roots deep in the fertile earth, nourishing its branches that reach up to the heavens, touching the sky with a gentle caress, as if trying to grasp the fleeting clouds that drift lazily across the azure expanse, carrying with them the hopes and dreams of those who look up in wonder, captivated by the beauty of the world around them, unaware of the ancient stories that the wind carries, tales of love, loss, and the passage of time.\n"
         val secondString = "Enlist to the echo of the silent wind as it whispers secrets of the old oak tree, standing tall and resolute against the test of time, its roots deep in the fertile earth, nourishing its branches that reach up to the heavens, touching the sky with a gentle caress, as if trying to grasp the fleeting clouds that drift lazily across the azure expanse, carrying with them the hopes and dreams of those who look up in wonder, captivated by the beauty of the world around them, unaware of the ancient stories that the wind carries, tales of love, loss, and the passage of time.\n"
 
-        val result = helper.areAnagrams(firstString, secondString)
+        val result = anagram.areAnagrams(firstString, secondString)
         assertTrue(result, "Expected '$firstString' and '$secondString' to be anagrams")
     }
 }
