@@ -13,7 +13,7 @@ This project is a simple interactive program written in Kotlin that provides two
     - Takes two strings as input.
     - Normalizes and cleans the strings (removing whitespace, converting to lowercase).
     - Sorts the characters and compares them to check if the strings are anagrams.
-
+   
 2. **Anagram Finder**:
     - After checking strings with the anagram check feature, the program can return a list of all anagrams of a given string from previous inputs.
 
@@ -21,26 +21,6 @@ This project is a simple interactive program written in Kotlin that provides two
 
 - **Language**: Kotlin
 - **Tools**: Standard Kotlin development environment (e.g., IntelliJ IDEA)
-
-## Dependencies
-
-This project uses the following dependencies for testing:
-
-```gradle
-dependencies {
-    // JUnit 5 for testing
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
-}
-```
-
-## Important Files
-
-- **Main.kt**: This is the main entry point of the application where the CLI interface is handled.
-- **AnagramHelperTest.kt**: Contains the unit tests for the `AnagramHelper` class using JUnit 5.
-- **build.gradle**: The Gradle build script that manages project dependencies, compilation, and testing.
-- **README.md**: Project documentation providing an overview, setup instructions, and usage examples.
-
 
 ## How to Run the Program
 
@@ -55,5 +35,14 @@ dependencies {
    ```bash
    git clone https://github.com/vikashPirth/BeyonnexTask.git
    cd Anagram
+
+2. **Run the src/main/kotlin/Main.kt file**
+3. **Feature #1 is tested by giving input first and second string in CLI**
+4. **Feature #2 can be seen like  Anagrams of firstString: [secondString]**
+
+
+### Test
+
+- **Test case be found in src/test/kotlin/AnagramTest**
 
 
